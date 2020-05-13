@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  python: circleci/python@0.2.1
+  python: circleci/python@03.8.2
 
 jobs:
   build-and-test:
@@ -12,7 +12,10 @@ jobs:
       - python/install-deps
       - python/save-cache
       - run:
-          #command: .src/quickhealth/manage.py migrate
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
           name: Test
 
 workflows:
