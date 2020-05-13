@@ -12,7 +12,7 @@ jobs:
       - python/install-deps
       - python/save-cache
       - run:
-          command: ./quickhealth/manage.py migrate
+          #command: .src/quickhealth/manage.py migrate
           name: Test
 
 workflows:
