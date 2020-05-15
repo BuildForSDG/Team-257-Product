@@ -1,16 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>register</title>
-</head>
-<body>
-<form method="POST" action="">
-    {% csrf_token%}
-    {{form.as_p}}
+{% extends "base.html" %}
+{% load crispy_forms_tags %} <!-- bootstrap styling for forms -->
+{% block title %}Register{% endblock %}
 
-    <input type="submit" name="Create User">
-</form>
+{% block content %}
 
-</body>
-</html>
+
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join QuickHealth</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already have an account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+            </small>
+        </div>
+    </div>
+
+{% endblock %}
