@@ -1,0 +1,1 @@
+web: gunicorn src/quickhealth.wsgi --log-file -
