@@ -4,6 +4,23 @@ body {
   margin-top: 5rem;
 }
 
+// Colors
+$blue: #2980b9;
+$fb-color: #3b5998;
+$twitter-color: #1da1f2;
+
+// Mixins
+@mixin borderRadius($radius-value) {
+  -webkit-border-radius: $radius-value;
+  -moz-border-radius: $radius-value;
+  -ms-border-radius: $radius-value;
+  -os-border-radius: $radius-value;
+}
+
+@mixin fontSize($size) {
+  font-size: $size;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
@@ -82,3 +99,23 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+
+.social-login {
+    button {
+      width: 95%;
+      margin: 10px auto;
+      padding: 23px;
+      display: block;
+      font-family: 'ROboto';
+      text-align: left;
+      &:first-child {
+        background-color: $fb-color;
+        margin-top: 25px;
+        &:hover { background-color: #1565C0; }
+      }
+
+      i {
+        margin-right: 13px
+      }
+    }
+  }

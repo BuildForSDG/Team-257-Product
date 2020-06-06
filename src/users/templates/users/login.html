@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %} <!-- bootstrap styling for forms-->
-{% block title %}Register{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
 
@@ -14,11 +14,22 @@
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">login</button>
+                <a class="ml-2" href="{% url 'password_reset' %}">Forgot my password</a>
             </div>
         </form>
+        <div class='social-login'>
+            {% load socialaccount %}
+            {% providers_media_js %}
+            <a href="{% provider_login_url 'facebook' method='js_sdk' %}">
+                <button class='btn btn-primary'>
+                <i class='fa fa-facebook fa-lg fa-fw'></i> Login with Facebook
+            </button>
+            </a>
+        </div>
+
         <div class="border-top pt-3">
             <small class="text-muted">
-                new to QuickHealth? <a class="ml-2" href="{% url 'register' %}">Sign Up</a>
+                Don't have an account? <a class="ml-2" href="{% url 'register' %}">Sign Up</a>
             </small>
         </div>
     </div>
